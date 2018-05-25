@@ -49,7 +49,7 @@ public class Principal extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        text_ej = new javax.swing.JTextArea();
+        eject = new javax.swing.JTextArea();
         jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -149,9 +149,9 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        text_ej.setColumns(20);
-        text_ej.setRows(5);
-        jScrollPane2.setViewportView(text_ej);
+        eject.setColumns(20);
+        eject.setRows(5);
+        jScrollPane2.setViewportView(eject);
 
         jButton5.setText("Ejecutar");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -310,7 +310,7 @@ public class Principal extends javax.swing.JFrame {
         for (int i = 0; i < 10; i++) {
             for (usuarios o : usua) {
                 if (o.getUsername().equals(login_usua.getText()) && pass_log.getText().equals(o.getPassword())) {
-                    actual = login_usua.getText();
+                    actual = o;
 
                 }
             }
@@ -366,7 +366,15 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-        String x;
+        String x=eject.getText();
+        x=x.toLowerCase();
+        
+        if (x.contains("create")) {
+            String[] x1=x.split("class ");
+            String uso=x1[2];
+            actual.getClase().add(new clases(uso));
+            
+        }
     }//GEN-LAST:event_jButton5MouseClicked
 
     /**
@@ -408,6 +416,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField contra_r;
     private javax.swing.JTextField correo_r;
     private javax.swing.JTextField edad_r;
+    private javax.swing.JTextArea eject;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -432,10 +441,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField nombre_r;
     private javax.swing.JTextField nusuario_r;
     private javax.swing.JPasswordField pass_log;
-    private javax.swing.JTextArea text_ej;
     // End of variables declaration//GEN-END:variables
 
     ArrayList<usuarios> usua = new ArrayList();
-    String actual = null;
-
+    usuarios actual = null;
+    
 }
