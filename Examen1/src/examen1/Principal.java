@@ -368,7 +368,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         String x = eject.getText();
         x = x.toLowerCase();
-
+        x=x.trim();
         if (x.contains("create")) {
             String[] x1 = x.split("class ");
             String uso = x1[1];
@@ -379,11 +379,39 @@ public class Principal extends javax.swing.JFrame {
             String[] x1 = x.split("class ");
             String uso = x1[1];
             for (int i = 0; i < actual.getClase().size(); i++) {
-                if (actual.getClase().get(i).getId()==uso) {
+                if (actual.getClase().get(i).getId().equals(uso)) {
                     actual.getClase().remove(i);
                 }
             }
         }
+        if (x.contains("modify")) {
+            String[] x1=x.split("class "+" to ");
+            String uso1=x1[1];
+            String uso2=x1[2];
+            for (int i = 0; i < actual.getClase().size(); i++) {
+                if (actual.getClase().get(i).getId().equals(uso1)) {
+                    actual.getClase().get(i).setId(uso2);
+                }
+            }
+        }
+        
+        if (x.contains("add")) {
+            x=x.replaceAll("\\(", "");
+            x=x.replaceAll("\\)", "");
+            String[] x1=x.split(" ");
+            String uso1=x1[4];
+            String uso2=x1[5];
+            String var=x1[3];
+            String uso3=uso1+uso2;
+            for (int i = 0; i < actual.getClase().size(); i++) {
+                if (actual.getClase().get(i).getId().equals(var)) {
+                    actual.getClase().get(i).getAtri().add(new atributos(uso3));
+                }
+            }
+        }
+        
+        System.out.println(actual.getClase());
+        
     }//GEN-LAST:event_jButton5MouseClicked
 
     /**

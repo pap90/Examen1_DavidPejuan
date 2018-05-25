@@ -46,5 +46,10 @@ public class clases {
     public void setMet(ArrayList<metodos> met) {
         this.met = met;
     }
+
+    @Override
+    public String toString() {
+        return "clases{" + "id=" + id + ", atri=" + atri + ", met=" + met + '}';
+    }
     
 }

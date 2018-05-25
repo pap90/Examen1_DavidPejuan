@@ -10,5 +10,26 @@ package examen1;
  * @author david
  */
 public class atributos {
+    private String atri;
+
+    public atributos() {
+    }
+
+    public atributos(String atri) {
+        this.atri = atri;
+    }
+
+    public String getAtri() {
+        return atri;
+    }
+
+    public void setAtri(String atri) {
+        this.atri = atri;
+    }
+
+    @Override
+    public String toString() {
+        return "atributos{" + "atri=" + atri + '}';
+    }
     
 }
