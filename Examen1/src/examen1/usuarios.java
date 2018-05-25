@@ -77,5 +77,11 @@ public class usuarios {
     public void setClase(ArrayList<clases> clase) {
         this.clase = clase;
     }
+
+    @Override
+    public String toString() {
+        return "usuarios{" + "nombre=" + nombre + ", edad=" + edad + ", correo=" + correo + ", username=" + username + ", password=" + password + ", clase=" + clase + '}';
+    }
+    
     
 }
