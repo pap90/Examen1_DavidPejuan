@@ -22,5 +22,29 @@ public class clases {
     public clases(String id) {
         this.id = id;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public ArrayList<atributos> getAtri() {
+        return atri;
+    }
+
+    public void setAtri(ArrayList<atributos> atri) {
+        this.atri = atri;
+    }
+
+    public ArrayList<metodos> getMet() {
+        return met;
+    }
+
+    public void setMet(ArrayList<metodos> met) {
+        this.met = met;
+    }
     
 }

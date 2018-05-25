@@ -315,16 +315,16 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         }
-            if (actual == null) {
-                JOptionPane.showMessageDialog(this, "usuario no existente.");
-            }
-        if (actual!=null) {
+        if (actual == null) {
+            JOptionPane.showMessageDialog(this, "usuario no existente.");
+        }
+        if (actual != null) {
             jd_logeado.setModal(true);
             jd_logeado.pack();
             jd_logeado.setLocationRelativeTo(this);
             jd_logeado.setVisible(true);
         }
-        
+
 
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -366,14 +366,23 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-        String x=eject.getText();
-        x=x.toLowerCase();
-        
+        String x = eject.getText();
+        x = x.toLowerCase();
+
         if (x.contains("create")) {
-            String[] x1=x.split("class ");
-            String uso=x1[2];
+            String[] x1 = x.split("class ");
+            String uso = x1[1];
             actual.getClase().add(new clases(uso));
-            
+
+        }
+        if (x.contains("delete")) {
+            String[] x1 = x.split("class ");
+            String uso = x1[1];
+            for (int i = 0; i < actual.getClase().size(); i++) {
+                if (actual.getClase().get(i).getId()==uso) {
+                    actual.getClase().remove(i);
+                }
+            }
         }
     }//GEN-LAST:event_jButton5MouseClicked
 
@@ -445,5 +454,5 @@ public class Principal extends javax.swing.JFrame {
 
     ArrayList<usuarios> usua = new ArrayList();
     usuarios actual = null;
-    
+
 }
